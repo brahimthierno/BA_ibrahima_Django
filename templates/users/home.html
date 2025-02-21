@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .btn-login {
+            background-color: #007bff;
+        }
+        .btn-register {
+            background-color: #28a745;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue sur mon application Django !</h1>
+        <p>Connectez-vous ou inscrivez-vous pour continuer.</p>
+        
+        <a href="{% url 'login' %}" class="btn btn-login">Se Connecter</a>
+        <a href="{% url 'register' %}" class="btn btn-register">S'inscrire</a>
+    </div>
+</body>
+</html>
+
+{% endblock %}

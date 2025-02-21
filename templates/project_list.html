@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}Mes Projets - ESMT Tasks{% endblock %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Mes Projets</h2>
+    <a href="{% url 'project_create' %}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Nouveau Projet
+    </a>
+</div>
+
+<div class="row">
+    {% for project in projects %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.title }}</h5>
+                    <p class="card-text">{{ project.description|truncatewords:30 }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Créé le {{ project.created_at|date:"j F Y" }}
+                        </small>
+                    </p>
+                </div>
+                <div class="card-footer bg-transparent">
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'project_detail' project.pk %}" class="btn btn-outline-primary">
+                            Voir les détails
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                Vous n'avez pas encore de projets. 
+                <a href="{% url 'project_create' %}" class="alert-link">Créez votre premier projet</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

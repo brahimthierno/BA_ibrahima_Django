@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Modifier le projet - ESMT Tasks
+    {% else %}
+        Nouveau projet - ESMT Tasks
+    {% endif %}
+{% endblock %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title mb-4">
+                    {% if form.instance.pk %}
+                        Modifier le projet
+                    {% else %}
+                        Nouveau projet
+                    {% endif %}
+                </h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            {% if form.instance.pk %}
+                                Mettre à jour
+                            {% else %}
+                                Créer
+                            {% endif %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

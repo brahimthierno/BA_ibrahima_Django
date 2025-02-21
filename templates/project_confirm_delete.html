@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}Supprimer {{ project.title }} - ESMT Tasks{% endblock %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Supprimer le projet</h2>
+                <p class="text-center">
+                    Êtes-vous sûr de vouloir supprimer le projet "{{ project.title }}" ?
+                    Cette action est irréversible.
+                </p>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+                        <a href="{% url 'project_detail' project.pk %}" class="btn btn-outline-secondary">Annuler</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

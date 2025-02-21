@@ -1,0 +1,48 @@
+  .nav a{
+            color: white;
+            text-decoration: none;
+            background-color: blue;
+            padding: 3px 7px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+        h1{
+            background-color: blue;
+            color:white;
+            text-align: center;
+
+
+        }
+        body{
+            background-color: #4c4e4c;
+            color:white;
+        }
+        .nav{
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+
+        }
+        .content{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+        }
+        .btn-delete{
+            color: white;
+            text-decoration: none;
+            background-color: #ff1843;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+            font-size: 10px;
+        }
+        .btn-edit{
+             color: white;
+            text-decoration: none;
+            background-color: blue;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+            font-size: 10px;
+        }

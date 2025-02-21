@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% block title %}Accueil - ESMT Tasks{% endblock %}
+
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Bienvenue sur ESMT Tasks</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+            Plateforme de gestion des tâches collaboratives pour les enseignants et étudiants de l'ESMT.
+        </p>
+        {% if not user.is_authenticated %}
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{% url 'register' %}" class="btn btn-primary btn-lg px-4 gap-3">S'inscrire</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-lg px-4">Se connecter</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
