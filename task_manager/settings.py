@@ -35,6 +35,12 @@ INSTALLED_APPS = [
     'projects',
     'crispy_forms',
     'crispy_bootstrap4',  # Ajout pour bootstrap4
+
+    'rest_framework',
+    'corsheaders',
+
+    'rest_framework.authtoken',
+
 ]
 
 MIDDLEWARE = [
@@ -114,6 +120,19 @@ AUTH_USER_MODEL = 'users.CustomUser'  # Utilisation du modèle utilisateur perso
 
 # URLs de redirection après connexion/déconnexion
 LOGIN_REDIRECT_URL = 'dashboard'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = 'dashboard'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Autoriser les requêtes depuis le frontend React
+]

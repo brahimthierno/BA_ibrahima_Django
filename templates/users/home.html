@@ -1,5 +1,6 @@
-{% extends 'base.html' %}
-{% block content %}
+{% comment %} {% extends 'base.html' %}
+
+{% block content %} {% endcomment %}
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -50,10 +51,10 @@
         <h1>Bienvenue sur mon application Django !</h1>
         <p>Connectez-vous ou inscrivez-vous pour continuer.</p>
         
-        <a href="{% url 'login' %}" class="btn btn-login">Se Connecter</a>
+        <a href="{% url 'login_view' %}" class="btn btn-login">Se Connecter</a>
         <a href="{% url 'register' %}" class="btn btn-register">S'inscrire</a>
     </div>
 </body>
 </html>
 
-{% endblock %}
+{% comment %} {% endblock %} {% endcomment %}

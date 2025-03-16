@@ -1,16 +1,33 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Fermer automatiquement les alertes après 3 secondes
+    let alerts = document.querySelectorAll(".alert");
+    alerts.forEach((alert) => {
+        setTimeout(() => {
+            alert.classList.add("fade");
+            setTimeout(() => alert.remove(), 500);
+        }, 3000);
+    });
 
-document.getElementById('mi').addEventListener('keyup',tableFilter);
-function tableFilter(){
-    let v = document.getElementById('mi').value
-    let tab = document.getElementById('tab')
-    let trs = tab.getElementsByTagName('tr')
-    let vTd;
-    for(let i=1;i<trs.length;i++){
-        vTd = trs[i].getElementsByTagName('td')[0].innerText
-        if(vTd.toLocaleLowerCase().indexOf(v.toLocaleLowerCase())>-1){
-            trs[i].style.display = ''
-        }else {
-            trs[i].style.display = 'none'
-        }
+    // Navbar responsive
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector("#navbarNav");
+
+    if (navbarToggler) {
+        navbarToggler.addEventListener("click", function () {
+            navbarCollapse.classList.toggle("show");
+        });
     }
-}
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let img = document.querySelector(".img-custom");
+
+    if (img) {
+        img.style.opacity = "0"; // Masquer l'image au début
+        setTimeout(() => {
+            img.style.opacity = "1"; // Apparition progressive
+            img.style.transition = "opacity 1s ease-in-out";
+        }, 300);
+    }
+});
